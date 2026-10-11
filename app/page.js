@@ -654,8 +654,8 @@ export default function Home() {
       ctx.lineWidth = isPlaying ? 2.4 : 1.2;
 
       ctx.strokeStyle = isPlaying
-        ? "rgba(80, 210, 255, 0.95)"
-        : "rgba(80, 210, 255, 0.35)";
+        ? "rgba(14, 165, 233, 0.95)"
+        : "rgba(14, 165, 233, 0.4)";
 
       ctx.stroke();
 
@@ -1524,8 +1524,8 @@ export default function Home() {
 
         :global(body) {
           margin: 0;
-          background: #030609;
-          color: #eef8ff;
+          background: #ffffff;
+          color: #0f172a;
           font-family:
             Inter,
             ui-sans-serif,
@@ -1546,10 +1546,10 @@ export default function Home() {
           background:
             radial-gradient(
               circle at 50% 0%,
-              rgba(16, 74, 105, 0.18),
+              rgba(14, 165, 233, 0.06),
               transparent 35%
             ),
-            #030609;
+            #ffffff;
         }
 
         .ambient {
@@ -1559,18 +1559,18 @@ export default function Home() {
           border-radius: 50%;
           filter: blur(110px);
           pointer-events: none;
-          opacity: 0.08;
+          opacity: 0.15;
           z-index: 0;
         }
 
         .ambientOne {
-          background: #00aaff;
+          background: #7dd3fc;
           top: 15%;
           left: -180px;
         }
 
         .ambientTwo {
-          background: #0077ff;
+          background: #93c5fd;
           right: -180px;
           top: 55%;
         }
@@ -1586,8 +1586,8 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background: rgba(3, 6, 9, 0.72);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          background: rgba(255, 255, 255, 0.8);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
           backdrop-filter: blur(18px);
         }
 
@@ -1602,23 +1602,24 @@ export default function Home() {
           height: 34px;
           display: grid;
           place-items: center;
-          border: 1px solid rgba(85, 211, 255, 0.5);
+          border: 1px solid rgba(2, 132, 199, 0.5);
           border-radius: 50%;
-          color: #67d8ff;
+          color: #0284c7;
           box-shadow:
-            0 0 22px rgba(0, 190, 255, 0.18);
+            0 0 22px rgba(2, 132, 199, 0.15);
         }
 
         .brandName {
           font-size: 11px;
           font-weight: 800;
           letter-spacing: 0.16em;
+          color: #0f172a;
         }
 
         .brandSub {
           margin-top: 3px;
           font-size: 8px;
-          color: rgba(220, 240, 250, 0.45);
+          color: rgba(15, 23, 42, 0.5);
           letter-spacing: 0.18em;
         }
 
@@ -1626,7 +1627,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           gap: 9px;
-          color: rgba(225, 244, 252, 0.55);
+          color: rgba(15, 23, 42, 0.6);
           font-size: 9px;
           letter-spacing: 0.14em;
         }
@@ -1635,16 +1636,16 @@ export default function Home() {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: #69e4ff;
-          box-shadow: 0 0 12px #69e4ff;
+          background: #0ea5e9;
+          box-shadow: 0 0 12px #0ea5e9;
         }
 
         .navVoice {
           margin-left: 12px;
           padding: 8px 11px;
-          color: #8ce5ff;
-          background: rgba(47, 189, 238, 0.06);
-          border: 1px solid rgba(75, 208, 255, 0.25);
+          color: #0369a1;
+          background: rgba(14, 165, 233, 0.08);
+          border: 1px solid rgba(14, 165, 233, 0.3);
           border-radius: 6px;
           font-size: 8px;
           letter-spacing: 0.12em;
@@ -1663,15 +1664,15 @@ export default function Home() {
         .heroGrid {
           position: absolute;
           inset: 0;
-          opacity: 0.22;
+          opacity: 0.5;
           background-image:
             linear-gradient(
-              rgba(72, 192, 235, 0.055) 1px,
+              rgba(14, 165, 233, 0.08) 1px,
               transparent 1px
             ),
             linear-gradient(
               90deg,
-              rgba(72, 192, 235, 0.055) 1px,
+              rgba(14, 165, 233, 0.08) 1px,
               transparent 1px
             );
           background-size: 70px 70px;
@@ -1691,7 +1692,7 @@ export default function Home() {
         }
 
         .heroEyebrow {
-          color: #63d9ff;
+          color: #0284c7;
           font-size: 10px;
           font-weight: 800;
           letter-spacing: 0.25em;
@@ -1706,6 +1707,7 @@ export default function Home() {
           line-height: 0.9;
           letter-spacing: -0.055em;
           font-weight: 900;
+          color: #0f172a;
         }
 
         .heroTitleLeft {
@@ -1715,7 +1717,7 @@ export default function Home() {
 
         .heroTitleRight {
           margin-left: 9vw;
-          color: rgba(238, 248, 255, 0.35);
+          color: rgba(15, 23, 42, 0.3);
           animation: heroFromRight 0.9s 0.12s
             cubic-bezier(0.2, 0.8, 0.2, 1)
             both;
@@ -1726,13 +1728,13 @@ export default function Home() {
           font-size: clamp(22px, 3vw, 38px);
           font-weight: 500;
           letter-spacing: -0.025em;
-          color: #8edfff;
+          color: #0284c7;
         }
 
         .heroDescription {
           max-width: 620px;
           margin-top: 20px;
-          color: rgba(222, 239, 247, 0.62);
+          color: rgba(15, 23, 42, 0.65);
           line-height: 1.8;
           font-size: 14px;
         }
@@ -1766,9 +1768,9 @@ export default function Home() {
           display: flex;
           align-items: center;
           gap: 22px;
-          border: 1px solid #48d6ff;
-          background: #55d9ff;
-          color: #001018;
+          border: 1px solid #0284c7;
+          background: #0284c7;
+          color: #ffffff;
           font-size: 10px;
           font-weight: 900;
           letter-spacing: 0.13em;
@@ -1782,15 +1784,15 @@ export default function Home() {
           display: flex;
           align-items: center;
           gap: 9px;
-          background: rgba(255, 255, 255, 0.025);
-          color: #dff7ff;
-          border: 1px solid rgba(190, 230, 245, 0.16);
+          background: #ffffff;
+          color: #0f172a;
+          border: 1px solid rgba(15, 23, 42, 0.15);
           font-size: 10px;
           letter-spacing: 0.13em;
         }
 
         .secondaryButton span {
-          color: #6bdcff;
+          color: #0284c7;
         }
 
         .earthVisual {
@@ -1810,7 +1812,7 @@ export default function Home() {
           width: 70%;
           height: 70%;
           border-radius: 50%;
-          background: rgba(30, 180, 255, 0.1);
+          background: rgba(14, 165, 233, 0.15);
           filter: blur(45px);
         }
 
@@ -1823,43 +1825,43 @@ export default function Home() {
           background:
             radial-gradient(
               circle at 35% 30%,
-              rgba(130, 230, 255, 0.45),
+              rgba(186, 230, 253, 0.9),
               transparent 8%
             ),
             radial-gradient(
               circle at 45% 45%,
-              #0c4964,
-              #06202e 52%,
-              #01070c 100%
+              #38bdf8,
+              #0ea5e9 52%,
+              #0284c7 100%
             );
           box-shadow:
-            inset -25px -15px 55px rgba(0, 0, 0, 0.75),
-            0 0 70px rgba(34, 184, 255, 0.2);
+            inset -25px -15px 55px rgba(2, 132, 199, 0.4),
+            0 0 70px rgba(14, 165, 233, 0.3);
         }
 
         .earthSurface {
           position: absolute;
           inset: 0;
-          opacity: 0.8;
+          opacity: 0.7;
           background:
             radial-gradient(
               ellipse at 28% 40%,
-              rgba(63, 195, 123, 0.55) 0 8%,
+              rgba(255, 255, 255, 0.7) 0 8%,
               transparent 9%
             ),
             radial-gradient(
               ellipse at 65% 32%,
-              rgba(75, 198, 130, 0.42) 0 11%,
+              rgba(255, 255, 255, 0.55) 0 11%,
               transparent 12%
             ),
             radial-gradient(
               ellipse at 70% 70%,
-              rgba(53, 170, 116, 0.45) 0 10%,
+              rgba(255, 255, 255, 0.6) 0 10%,
               transparent 11%
             ),
             radial-gradient(
               ellipse at 38% 70%,
-              rgba(56, 172, 120, 0.4) 0 7%,
+              rgba(255, 255, 255, 0.55) 0 7%,
               transparent 8%
             );
           filter: blur(2px);
@@ -1872,12 +1874,12 @@ export default function Home() {
             repeating-linear-gradient(
               0deg,
               transparent 0 17px,
-              rgba(120, 220, 255, 0.16) 18px 19px
+              rgba(255, 255, 255, 0.4) 18px 19px
             ),
             repeating-linear-gradient(
               90deg,
               transparent 0 17px,
-              rgba(120, 220, 255, 0.16) 18px 19px
+              rgba(255, 255, 255, 0.4) 18px 19px
             );
           transform: rotate(-20deg);
         }
@@ -1889,13 +1891,13 @@ export default function Home() {
           left: 12%;
           top: 8%;
           border-radius: 50%;
-          background: rgba(175, 239, 255, 0.1);
+          background: rgba(255, 255, 255, 0.4);
           filter: blur(10px);
         }
 
         .orbit {
           position: absolute;
-          border: 1px solid rgba(73, 203, 255, 0.18);
+          border: 1px solid rgba(14, 165, 233, 0.3);
           border-radius: 50%;
         }
 
@@ -1915,7 +1917,7 @@ export default function Home() {
           width: 105%;
           height: 75%;
           transform: rotate(-62deg);
-          opacity: 0.45;
+          opacity: 0.55;
         }
 
         .dataPoint {
@@ -1923,8 +1925,8 @@ export default function Home() {
           width: 5px;
           height: 5px;
           border-radius: 50%;
-          background: #75e2ff;
-          box-shadow: 0 0 14px #75e2ff;
+          background: #0284c7;
+          box-shadow: 0 0 14px #0284c7;
         }
 
         .pointOne {
@@ -1944,7 +1946,7 @@ export default function Home() {
 
         .orbitLabel {
           position: absolute;
-          color: rgba(145, 220, 243, 0.4);
+          color: rgba(2, 132, 199, 0.6);
           font-size: 7px;
           letter-spacing: 0.17em;
         }
@@ -1971,7 +1973,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           gap: 13px;
-          color: rgba(220, 240, 248, 0.3);
+          color: rgba(15, 23, 42, 0.4);
           font-size: 8px;
           letter-spacing: 0.2em;
         }
@@ -1979,7 +1981,7 @@ export default function Home() {
         .scrollLine {
           width: 60px;
           height: 1px;
-          background: rgba(100, 210, 250, 0.3);
+          background: rgba(2, 132, 199, 0.4);
         }
 
         .introSection,
@@ -1992,11 +1994,11 @@ export default function Home() {
           position: relative;
           z-index: 2;
           padding: 130px 8vw;
-          border-top: 1px solid rgba(255, 255, 255, 0.055);
+          border-top: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         .sectionLabel {
-          color: #56cfee;
+          color: #0284c7;
           font-size: 9px;
           font-weight: 800;
           letter-spacing: 0.22em;
@@ -2016,17 +2018,18 @@ export default function Home() {
           font-size: clamp(40px, 5vw, 72px);
           line-height: 0.96;
           letter-spacing: -0.045em;
+          color: #0f172a;
         }
 
         .introText {
           max-width: 590px;
-          color: rgba(222, 239, 247, 0.6);
+          color: rgba(15, 23, 42, 0.65);
           font-size: 15px;
           line-height: 1.85;
         }
 
         .highlightText {
-          color: #8fe4ff;
+          color: #0284c7;
         }
 
         .sectionHeader {
@@ -2041,6 +2044,7 @@ export default function Home() {
           margin: 10px 0 0;
           font-size: clamp(30px, 4vw, 54px);
           letter-spacing: -0.04em;
+          color: #0f172a;
         }
 
         .sourceBadge,
@@ -2048,7 +2052,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           gap: 8px;
-          color: rgba(220, 242, 250, 0.55);
+          color: rgba(15, 23, 42, 0.6);
           font-size: 9px;
           letter-spacing: 0.15em;
         }
@@ -2058,8 +2062,8 @@ export default function Home() {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: #55d8ff;
-          box-shadow: 0 0 12px #55d8ff;
+          background: #0ea5e9;
+          box-shadow: 0 0 12px #0ea5e9;
         }
 
         .liveBadge .pulse {
@@ -2070,8 +2074,9 @@ export default function Home() {
           display: grid;
           grid-template-columns: 1.2fr 0.8fr;
           min-height: 520px;
-          border: 1px solid rgba(120, 210, 240, 0.11);
-          background: rgba(255, 255, 255, 0.015);
+          border: 1px solid rgba(15, 23, 42, 0.1);
+          background: #ffffff;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.04);
         }
 
         .temperatureVisual {
@@ -2083,7 +2088,7 @@ export default function Home() {
           background:
             radial-gradient(
               circle at center,
-              rgba(16, 111, 151, 0.14),
+              rgba(14, 165, 233, 0.08),
               transparent 55%
             );
         }
@@ -2092,15 +2097,15 @@ export default function Home() {
           content: "";
           position: absolute;
           inset: 0;
-          opacity: 0.18;
+          opacity: 0.5;
           background-image:
             linear-gradient(
-              rgba(100, 220, 255, 0.12) 1px,
+              rgba(14, 165, 233, 0.1) 1px,
               transparent 1px
             ),
             linear-gradient(
               90deg,
-              rgba(100, 220, 255, 0.12) 1px,
+              rgba(14, 165, 233, 0.1) 1px,
               transparent 1px
             );
           background-size: 50px 50px;
@@ -2113,7 +2118,7 @@ export default function Home() {
           right: 25px;
           display: flex;
           justify-content: space-between;
-          color: rgba(210, 237, 247, 0.38);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 8px;
           letter-spacing: 0.16em;
         }
@@ -2136,7 +2141,7 @@ export default function Home() {
 
         .tempRing {
           position: absolute;
-          border: 1px solid rgba(72, 209, 255, 0.14);
+          border: 1px solid rgba(14, 165, 233, 0.25);
           border-radius: 50%;
         }
 
@@ -2162,40 +2167,41 @@ export default function Home() {
           background:
             radial-gradient(
               circle at 35% 30%,
-              rgba(129, 226, 255, 0.22),
+              rgba(255, 255, 255, 0.95),
               transparent 25%
             ),
             radial-gradient(
               circle,
-              rgba(17, 109, 145, 0.4),
-              rgba(2, 13, 19, 0.95)
+              #e0f2fe,
+              #f0f9ff
             );
-          border: 1px solid rgba(105, 222, 255, 0.4);
+          border: 1px solid rgba(14, 165, 233, 0.4);
           box-shadow:
-            0 0 60px rgba(41, 196, 255, 0.14),
-            inset 0 0 40px rgba(35, 185, 255, 0.1);
+            0 0 60px rgba(14, 165, 233, 0.15),
+            inset 0 0 40px rgba(14, 165, 233, 0.08);
         }
 
         .tempCore strong {
           font-size: 42px;
           letter-spacing: -0.05em;
+          color: #0f172a;
         }
 
         .tempCore small {
           margin-top: 4px;
-          color: rgba(220, 240, 248, 0.4);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 7px;
           letter-spacing: 0.17em;
         }
 
         .observationPanel {
           padding: 40px;
-          border-left: 1px solid rgba(255, 255, 255, 0.06);
+          border-left: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         .panelTitle,
         .miniLabel {
-          color: rgba(214, 239, 247, 0.38);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 8px;
           letter-spacing: 0.18em;
         }
@@ -2205,17 +2211,18 @@ export default function Home() {
           font-size: clamp(54px, 6vw, 84px);
           font-weight: 800;
           letter-spacing: -0.06em;
+          color: #0f172a;
         }
 
         .bigTemperature span {
           font-size: 20px;
-          color: #62d9ff;
+          color: #0284c7;
           margin-left: 5px;
         }
 
         .observationDescription {
           margin-top: 7px;
-          color: #65d9ff;
+          color: #0284c7;
           font-size: 10px;
           letter-spacing: 0.12em;
         }
@@ -2230,11 +2237,11 @@ export default function Home() {
           display: flex;
           justify-content: space-between;
           padding-bottom: 13px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         .observationMeta span {
-          color: rgba(220, 240, 248, 0.35);
+          color: rgba(15, 23, 42, 0.45);
           font-size: 8px;
           letter-spacing: 0.13em;
         }
@@ -2242,6 +2249,7 @@ export default function Home() {
         .observationMeta strong {
           font-size: 9px;
           letter-spacing: 0.12em;
+          color: #0f172a;
         }
 
         .dataNotice {
@@ -2249,17 +2257,17 @@ export default function Home() {
           gap: 10px;
           margin-top: 35px;
           padding: 12px;
-          border: 1px solid rgba(93, 212, 248, 0.09);
-          background: rgba(93, 212, 248, 0.025);
+          border: 1px solid rgba(14, 165, 233, 0.15);
+          background: rgba(14, 165, 233, 0.05);
         }
 
         .dataNotice span {
-          color: #64dfff;
+          color: #0284c7;
         }
 
         .dataNotice p {
           margin: 0;
-          color: rgba(220, 240, 248, 0.42);
+          color: rgba(15, 23, 42, 0.55);
           font-size: 9px;
           line-height: 1.6;
         }
@@ -2267,26 +2275,27 @@ export default function Home() {
         .loadingBox,
         .errorBox {
           margin-top: 60px;
-          color: rgba(220, 240, 248, 0.4);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 10px;
           letter-spacing: 0.13em;
         }
 
         .errorBox {
-          color: #ff8d8d;
+          color: #dc2626;
         }
 
         .timelineCard {
           margin-top: 18px;
-          border: 1px solid rgba(255, 255, 255, 0.07);
-          background: rgba(255, 255, 255, 0.015);
+          border: 1px solid rgba(15, 23, 42, 0.1);
+          background: #ffffff;
           padding: 25px;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.04);
         }
 
         .timelineHeader {
           display: flex;
           justify-content: space-between;
-          color: rgba(220, 240, 248, 0.4);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 8px;
           letter-spacing: 0.15em;
         }
@@ -2306,19 +2315,19 @@ export default function Home() {
           padding: 15px;
           text-align: left;
           cursor: pointer;
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          background: rgba(255, 255, 255, 0.015);
-          color: white;
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: #ffffff;
+          color: #0f172a;
         }
 
         .timelineItem.active {
-          border-color: rgba(81, 211, 255, 0.45);
-          background: rgba(55, 190, 235, 0.055);
+          border-color: rgba(14, 165, 233, 0.55);
+          background: rgba(14, 165, 233, 0.06);
         }
 
         .timelineDate {
           display: block;
-          color: rgba(220, 240, 248, 0.4);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 8px;
         }
 
@@ -2327,6 +2336,7 @@ export default function Home() {
           margin-top: 12px;
           font-size: 19px;
           font-weight: 700;
+          color: #0f172a;
         }
 
         .timelineBar {
@@ -2334,24 +2344,25 @@ export default function Home() {
           display: flex;
           align-items: flex-end;
           margin-top: 12px;
-          background: rgba(255, 255, 255, 0.025);
+          background: rgba(15, 23, 42, 0.04);
         }
 
         .timelineBar span {
           width: 100%;
-          background: rgba(74, 210, 255, 0.5);
+          background: rgba(14, 165, 233, 0.55);
         }
 
         .sonificationCard {
           padding: 35px;
-          border: 1px solid rgba(87, 210, 246, 0.14);
+          border: 1px solid rgba(14, 165, 233, 0.2);
           background:
             radial-gradient(
               circle at 70% 20%,
-              rgba(38, 150, 190, 0.08),
+              rgba(14, 165, 233, 0.06),
               transparent 40%
             ),
-            rgba(255, 255, 255, 0.015);
+            #ffffff;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
         }
 
         .sonificationTop {
@@ -2365,17 +2376,18 @@ export default function Home() {
           font-size: clamp(55px, 7vw, 95px);
           font-weight: 800;
           letter-spacing: -0.07em;
+          color: #0f172a;
         }
 
         .frequency span {
-          color: #5fd9ff;
+          color: #0284c7;
           font-size: 18px;
           margin-left: 7px;
           letter-spacing: 0;
         }
 
         .frequencyCaption {
-          color: rgba(220, 240, 248, 0.38);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 9px;
         }
 
@@ -2391,21 +2403,22 @@ export default function Home() {
         }
 
         .sonificationInfo span {
-          color: rgba(220, 240, 248, 0.35);
+          color: rgba(15, 23, 42, 0.45);
           font-size: 8px;
           letter-spacing: 0.15em;
         }
 
         .sonificationInfo strong {
           font-size: 20px;
+          color: #0f172a;
         }
 
         .waveformContainer {
           height: 190px;
           margin-top: 35px;
-          border-top: 1px solid rgba(255, 255, 255, 0.05);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          background: rgba(0, 0, 0, 0.16);
+          border-top: 1px solid rgba(15, 23, 42, 0.08);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+          background: rgba(14, 165, 233, 0.04);
         }
 
         .waveformContainer canvas {
@@ -2422,9 +2435,9 @@ export default function Home() {
 
         .playButton {
           padding: 14px 20px;
-          border: 1px solid #5edbff;
-          background: rgba(80, 211, 255, 0.08);
-          color: #7de2ff;
+          border: 1px solid #0284c7;
+          background: rgba(14, 165, 233, 0.08);
+          color: #0284c7;
           border-radius: 6px;
           cursor: pointer;
           font-size: 9px;
@@ -2438,7 +2451,7 @@ export default function Home() {
         }
 
         .controlHint {
-          color: rgba(220, 240, 248, 0.38);
+          color: rgba(15, 23, 42, 0.55);
           font-size: 10px;
         }
 
@@ -2453,12 +2466,13 @@ export default function Home() {
           display: flex;
           gap: 18px;
           padding: 25px;
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          background: rgba(255, 255, 255, 0.015);
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: #ffffff;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.03);
         }
 
         .mappingNumber {
-          color: #5ddaff;
+          color: #0284c7;
           font-size: 9px;
           font-weight: 800;
         }
@@ -2467,11 +2481,12 @@ export default function Home() {
           margin: 0;
           font-size: 10px;
           letter-spacing: 0.12em;
+          color: #0f172a;
         }
 
         .mappingCard p {
           margin: 10px 0 0;
-          color: rgba(220, 240, 248, 0.42);
+          color: rgba(15, 23, 42, 0.6);
           font-size: 10px;
           line-height: 1.7;
         }
@@ -2491,12 +2506,13 @@ export default function Home() {
         .processItem {
           min-height: 190px;
           padding: 25px;
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          background: rgba(255, 255, 255, 0.012);
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: #ffffff;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.03);
         }
 
         .processItem span {
-          color: #55d8ff;
+          color: #0284c7;
           font-size: 9px;
         }
 
@@ -2505,16 +2521,17 @@ export default function Home() {
           margin-top: 45px;
           font-size: 10px;
           letter-spacing: 0.1em;
+          color: #0f172a;
         }
 
         .processItem p {
-          color: rgba(220, 240, 248, 0.4);
+          color: rgba(15, 23, 42, 0.55);
           font-size: 9px;
           line-height: 1.7;
         }
 
         .processArrow {
-          color: rgba(85, 216, 255, 0.5);
+          color: rgba(2, 132, 199, 0.6);
           font-size: 22px;
         }
 
@@ -2526,8 +2543,9 @@ export default function Home() {
 
         .voiceIntro,
         .guideList {
-          border: 1px solid rgba(255, 255, 255, 0.07);
-          background: rgba(255, 255, 255, 0.015);
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: #ffffff;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.03);
         }
 
         .voiceIntro {
@@ -2540,9 +2558,9 @@ export default function Home() {
           display: grid;
           place-items: center;
           border-radius: 50%;
-          border: 1px solid rgba(91, 215, 255, 0.35);
-          color: #64dcff;
-          box-shadow: 0 0 35px rgba(50, 195, 255, 0.08);
+          border: 1px solid rgba(14, 165, 233, 0.45);
+          color: #0284c7;
+          box-shadow: 0 0 35px rgba(14, 165, 233, 0.12);
         }
 
         .voiceIntro h3 {
@@ -2550,19 +2568,20 @@ export default function Home() {
           font-size: 27px;
           line-height: 1;
           letter-spacing: -0.04em;
+          color: #0f172a;
         }
 
         .voiceIntro p {
-          color: rgba(220, 240, 248, 0.42);
+          color: rgba(15, 23, 42, 0.6);
           font-size: 11px;
           line-height: 1.8;
           margin: 20px 0 25px;
         }
 
         .voiceMainButton {
-          border: 1px solid rgba(88, 215, 255, 0.5);
-          background: rgba(66, 201, 241, 0.08);
-          color: #7edfff;
+          border: 1px solid rgba(14, 165, 233, 0.55);
+          background: rgba(14, 165, 233, 0.08);
+          color: #0284c7;
           font-size: 9px;
           font-weight: 800;
           letter-spacing: 0.12em;
@@ -2581,9 +2600,9 @@ export default function Home() {
           padding: 20px 25px;
           text-align: left;
           border: 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
           background: transparent;
-          color: white;
+          color: #0f172a;
           cursor: pointer;
         }
 
@@ -2593,11 +2612,11 @@ export default function Home() {
 
         .guideItem:hover,
         .guideItem.active {
-          background: rgba(69, 205, 247, 0.045);
+          background: rgba(14, 165, 233, 0.06);
         }
 
         .guideNumber {
-          color: rgba(220, 240, 248, 0.28);
+          color: rgba(15, 23, 42, 0.35);
           font-size: 9px;
         }
 
@@ -2609,23 +2628,24 @@ export default function Home() {
         .guideText strong {
           font-size: 11px;
           letter-spacing: 0.08em;
+          color: #0f172a;
         }
 
         .guideText small {
-          color: rgba(220, 240, 248, 0.34);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 9px;
         }
 
         .guidePlay {
-          color: #5edbff;
+          color: #0284c7;
           font-size: 11px;
         }
 
         .stopVoiceButton {
           padding: 10px 14px;
-          color: #ff9e9e;
-          border: 1px solid rgba(255, 120, 120, 0.25);
-          background: rgba(255, 100, 100, 0.035);
+          color: #dc2626;
+          border: 1px solid rgba(220, 38, 38, 0.3);
+          background: rgba(220, 38, 38, 0.05);
           border-radius: 5px;
           cursor: pointer;
           font-size: 8px;
@@ -2638,13 +2658,14 @@ export default function Home() {
           overflow: hidden;
           display: grid;
           grid-template-columns: 1.2fr 0.8fr;
-          border: 1px solid rgba(86, 210, 255, 0.14);
+          border: 1px solid rgba(14, 165, 233, 0.2);
           background:
             linear-gradient(
               120deg,
-              rgba(40, 170, 215, 0.055),
-              rgba(255, 255, 255, 0.012)
+              rgba(14, 165, 233, 0.06),
+              rgba(255, 255, 255, 0.9)
             );
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
         }
 
         .farrelContent {
@@ -2658,11 +2679,11 @@ export default function Home() {
           font-size: 13px;
           font-weight: 900;
           letter-spacing: 0.18em;
-          color: #dff8ff;
+          color: #0f172a;
         }
 
         .farrelLogo span {
-          color: #5fdcff;
+          color: #0284c7;
         }
 
         .farrelContent h2 {
@@ -2671,11 +2692,12 @@ export default function Home() {
           font-size: clamp(28px, 4vw, 52px);
           line-height: 0.98;
           letter-spacing: -0.04em;
+          color: #0f172a;
         }
 
         .farrelContent p {
           max-width: 680px;
-          color: rgba(220, 240, 248, 0.48);
+          color: rgba(15, 23, 42, 0.6);
           font-size: 11px;
           line-height: 1.8;
         }
@@ -2689,8 +2711,8 @@ export default function Home() {
 
         .farrelTags span {
           padding: 7px 9px;
-          border: 1px solid rgba(83, 211, 255, 0.15);
-          color: rgba(132, 222, 250, 0.58);
+          border: 1px solid rgba(14, 165, 233, 0.2);
+          color: rgba(2, 132, 199, 0.75);
           font-size: 7px;
           letter-spacing: 0.1em;
         }
@@ -2708,7 +2730,7 @@ export default function Home() {
           right: -100px;
           top: -50px;
           border-radius: 50%;
-          background: rgba(0, 180, 255, 0.08);
+          background: rgba(14, 165, 233, 0.12);
           filter: blur(80px);
         }
 
@@ -2718,10 +2740,10 @@ export default function Home() {
           display: grid;
           place-items: center;
           border-radius: 50%;
-          border: 1px solid rgba(91, 219, 255, 0.45);
+          border: 1px solid rgba(14, 165, 233, 0.5);
           box-shadow:
-            0 0 80px rgba(41, 194, 255, 0.1),
-            inset 0 0 50px rgba(41, 194, 255, 0.08);
+            0 0 80px rgba(14, 165, 233, 0.12),
+            inset 0 0 50px rgba(14, 165, 233, 0.08);
         }
 
         .aiCoreInner {
@@ -2730,9 +2752,9 @@ export default function Home() {
           display: grid;
           place-items: center;
           border-radius: 50%;
-          background: rgba(20, 103, 135, 0.15);
-          border: 1px solid rgba(95, 220, 255, 0.35);
-          color: #7ee3ff;
+          background: #e0f2fe;
+          border: 1px solid rgba(14, 165, 233, 0.4);
+          color: #0284c7;
           font-size: 24px;
           font-weight: 900;
           letter-spacing: -0.08em;
@@ -2740,7 +2762,7 @@ export default function Home() {
 
         .aiOrbit {
           position: absolute;
-          border: 1px solid rgba(81, 210, 255, 0.15);
+          border: 1px solid rgba(14, 165, 233, 0.2);
           border-radius: 50%;
         }
 
@@ -2771,7 +2793,7 @@ export default function Home() {
         }
 
         .creditsContent h2 span {
-          color: rgba(238, 248, 255, 0.28);
+          color: rgba(15, 23, 42, 0.3);
         }
 
         .team {
@@ -2785,24 +2807,26 @@ export default function Home() {
           padding: 25px;
           display: grid;
           grid-template-columns: 35px 1fr;
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          background: rgba(255, 255, 255, 0.012);
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: #ffffff;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.03);
         }
 
         .teamMember span {
-          color: #58d9ff;
+          color: #0284c7;
           font-size: 8px;
         }
 
         .teamMember strong {
           font-size: 13px;
           letter-spacing: 0.02em;
+          color: #0f172a;
         }
 
         .teamMember small {
           grid-column: 2;
           margin-top: 7px;
-          color: rgba(220, 240, 248, 0.3);
+          color: rgba(15, 23, 42, 0.4);
           font-size: 7px;
           letter-spacing: 0.14em;
         }
@@ -2811,12 +2835,12 @@ export default function Home() {
           position: relative;
           z-index: 3;
           padding: 30px 8vw;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          border-top: 1px solid rgba(15, 23, 42, 0.08);
           display: grid;
           grid-template-columns: 1fr auto 1fr;
           gap: 20px;
           align-items: center;
-          color: rgba(220, 240, 248, 0.32);
+          color: rgba(15, 23, 42, 0.4);
           font-size: 7px;
           letter-spacing: 0.13em;
         }
@@ -2827,11 +2851,11 @@ export default function Home() {
         }
 
         .footer strong {
-          color: rgba(230, 247, 253, 0.6);
+          color: rgba(15, 23, 42, 0.7);
         }
 
         .footerCenter {
-          color: #58d9ff;
+          color: #0284c7;
           text-align: center;
         }
 
@@ -2846,7 +2870,7 @@ export default function Home() {
           display: grid;
           place-items: center;
           padding: 20px;
-          background: rgba(1, 5, 8, 0.78);
+          background: rgba(255, 255, 255, 0.8);
           backdrop-filter: blur(15px);
         }
 
@@ -2854,15 +2878,15 @@ export default function Home() {
           position: relative;
           width: min(600px, 100%);
           padding: 50px;
-          border: 1px solid rgba(91, 218, 255, 0.22);
+          border: 1px solid rgba(14, 165, 233, 0.25);
           background:
             radial-gradient(
               circle at 50% 0%,
-              rgba(52, 186, 230, 0.09),
+              rgba(14, 165, 233, 0.08),
               transparent 55%
             ),
-            #050b10;
-          box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+            #ffffff;
+          box-shadow: 0 30px 100px rgba(15, 23, 42, 0.15);
           text-align: center;
         }
 
@@ -2872,7 +2896,7 @@ export default function Home() {
           right: 18px;
           border: 0;
           background: transparent;
-          color: rgba(240, 250, 255, 0.5);
+          color: rgba(15, 23, 42, 0.5);
           font-size: 27px;
           cursor: pointer;
         }
@@ -2884,22 +2908,23 @@ export default function Home() {
           display: grid;
           place-items: center;
           border-radius: 50%;
-          border: 1px solid rgba(85, 216, 255, 0.35);
-          color: #69dcff;
+          border: 1px solid rgba(14, 165, 233, 0.4);
+          color: #0284c7;
           font-size: 30px;
-          box-shadow: 0 0 60px rgba(52, 196, 255, 0.1);
+          box-shadow: 0 0 60px rgba(14, 165, 233, 0.15);
         }
 
         .voiceOverlayCard h2 {
           margin: 0;
           font-size: 29px;
           letter-spacing: -0.03em;
+          color: #0f172a;
         }
 
         .voiceOverlayCard p {
           max-width: 430px;
           margin: 15px auto 25px;
-          color: rgba(220, 240, 248, 0.43);
+          color: rgba(15, 23, 42, 0.6);
           font-size: 11px;
           line-height: 1.7;
         }
@@ -2950,7 +2975,7 @@ export default function Home() {
 
         @media (max-width: 1050px) {
           .earthVisual {
-            opacity: 0.35;
+            opacity: 0.4;
             right: -80px;
           }
 
@@ -3004,7 +3029,7 @@ export default function Home() {
             width: 80vw;
             height: 80vw;
             right: -28vw;
-            opacity: 0.22;
+            opacity: 0.25;
           }
 
           .introGrid,
@@ -3016,7 +3041,7 @@ export default function Home() {
 
           .observationPanel {
             border-left: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(15, 23, 42, 0.08);
           }
 
           .mappingGrid {
