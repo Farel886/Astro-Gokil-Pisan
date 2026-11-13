@@ -13,7 +13,7 @@ const VIDEO = {
   description:
     "A short visual journey through the project: where the data comes from, how it's visualized, and how it becomes sound.",
   src: "/videos/astrovideo.mp4",
-  duration: "30s",
+  duration: "50s",
 };
 
 const GUIDE_SECTIONS = [
@@ -243,9 +243,6 @@ export default function Home() {
   const [currentGuide, setCurrentGuide] = useState(null);
 
   const [welcomeStarted, setWelcomeStarted] = useState(false);
-
-  const [videoMuted, setVideoMuted] = useState(true);
-  const showcaseVideoRef = useRef(null);
 
   const audioContextRef = useRef(null);
   const oscillatorRef = useRef(null);
@@ -849,33 +846,16 @@ export default function Home() {
 
         <div className="singleVideoWrap">
           <video
-            ref={showcaseVideoRef}
             src={VIDEO.src}
             autoPlay
             loop
-            muted={videoMuted}
+            muted
             playsInline
             preload="metadata"
             className="singleVideo"
           >
             Your browser does not support video.
           </video>
-
-          <div className="videoOverlayControls">
-            <button
-              className="muteBtn"
-              onClick={() => {
-                const next = !videoMuted;
-                setVideoMuted(next);
-                if (showcaseVideoRef.current) {
-                  showcaseVideoRef.current.muted = next;
-                }
-              }}
-              aria-label={videoMuted ? "Unmute video" : "Mute video"}
-            >
-              {videoMuted ? "🔇" : "🔊"}
-            </button>
-          </div>
 
           <div className="videoFooter">
             <div>
@@ -2050,33 +2030,6 @@ export default function Home() {
           aspect-ratio: 16 / 9;
           display: block;
           background: #000;
-        }
-
-        .videoOverlayControls {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          z-index: 2;
-        }
-
-        .muteBtn {
-          width: 44px;
-          height: 44px;
-          display: grid;
-          place-items: center;
-          border-radius: 50%;
-          border: 1px solid rgba(255, 255, 255, 0.4);
-          background: rgba(0, 0, 0, 0.6);
-          color: white;
-          font-size: 17px;
-          cursor: pointer;
-          backdrop-filter: blur(10px);
-          transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .muteBtn:hover {
-          transform: scale(1.1);
-          background: rgba(0, 0, 0, 0.8);
         }
 
         .videoFooter {
