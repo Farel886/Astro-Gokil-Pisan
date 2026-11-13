@@ -7,6 +7,15 @@ const INDONESIA = {
   lon: 106.8,
 };
 
+const VIDEO = {
+  title: "The Story of Earth Information Jukebox",
+  subtitle: "From NASA data to sound — in one film",
+  description:
+    "A short visual journey through the project: where the data comes from, how it's visualized, and how it becomes sound.",
+  src: "/videos/astrovideo.mp4",
+  duration: "30s",
+};
+
 const GUIDE_SECTIONS = [
   {
     id: "welcome",
@@ -234,6 +243,9 @@ export default function Home() {
   const [currentGuide, setCurrentGuide] = useState(null);
 
   const [welcomeStarted, setWelcomeStarted] = useState(false);
+
+  const [videoMuted, setVideoMuted] = useState(true);
+  const showcaseVideoRef = useRef(null);
 
   const audioContextRef = useRef(null);
   const oscillatorRef = useRef(null);
@@ -815,40 +827,62 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="introSection">
-        <div className="sectionLabel">
-          01 / WHY THIS MATTERS
+      {/* ═══════ PROJECT SHOWCASE — SINGLE VIDEO ═══════ */}
+      <section className="showcaseSection">
+        <div className="sectionHeader">
+          <div>
+            <div className="sectionLabel">
+              01.5 / PROJECT SHOWCASE
+            </div>
+
+            <h2>WATCH THE STORY</h2>
+          </div>
+
+          <div className="sourceBadge">
+            <span /> AUTO-PLAYING
+          </div>
         </div>
 
-        <div className="introGrid">
-          <h2>
-            DATA IS MORE
-            <br />
-            THAN NUMBERS.
-          </h2>
+        <p className="showcaseIntro">
+          {VIDEO.description}
+        </p>
 
-          <div className="introText">
-            <p>
-              Earth generates enormous amounts of scientific
-              information every day.
-            </p>
+        <div className="singleVideoWrap">
+          <video
+            ref={showcaseVideoRef}
+            src={VIDEO.src}
+            autoPlay
+            loop
+            muted={videoMuted}
+            playsInline
+            preload="metadata"
+            className="singleVideo"
+          >
+            Your browser does not support video.
+          </video>
 
-            <p>
-              Temperature, atmosphere, oceans, vegetation,
-              and other observations help us understand our
-              changing planet.
-            </p>
+          <div className="videoOverlayControls">
+            <button
+              className="muteBtn"
+              onClick={() => {
+                const next = !videoMuted;
+                setVideoMuted(next);
+                if (showcaseVideoRef.current) {
+                  showcaseVideoRef.current.muted = next;
+                }
+              }}
+              aria-label={videoMuted ? "Unmute video" : "Mute video"}
+            >
+              {videoMuted ? "🔇" : "🔊"}
+            </button>
+          </div>
 
-            <p>
-              But scientific information is often experienced
-              through numbers and graphs alone.
-            </p>
-
-            <p className="highlightText">
-              Earth Information Jukebox explores another
-              possibility: experiencing Earth data through
-              sound.
-            </p>
+          <div className="videoFooter">
+            <div>
+              <strong>{VIDEO.title}</strong>
+              <span>{VIDEO.subtitle}</span>
+            </div>
+            <span className="videoDuration">{VIDEO.duration}</span>
           </div>
         </div>
       </section>
@@ -1984,6 +2018,101 @@ export default function Home() {
           background: rgba(2, 132, 199, 0.4);
         }
 
+        /* ═══════ SHOWCASE VIDEO SECTION ═══════ */
+        .showcaseSection {
+          position: relative;
+          z-index: 2;
+          padding: 130px 8vw;
+          border-top: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .showcaseIntro {
+          max-width: 720px;
+          color: rgba(15, 23, 42, 0.65);
+          font-size: 15px;
+          line-height: 1.8;
+          margin: -20px 0 40px;
+        }
+
+        .singleVideoWrap {
+          position: relative;
+          border: 1px solid rgba(15, 23, 42, 0.1);
+          background: #ffffff;
+          border-radius: 14px;
+          overflow: hidden;
+          box-shadow: 0 30px 100px rgba(15, 23, 42, 0.15);
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+
+        .singleVideo {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          display: block;
+          background: #000;
+        }
+
+        .videoOverlayControls {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          z-index: 2;
+        }
+
+        .muteBtn {
+          width: 44px;
+          height: 44px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          font-size: 17px;
+          cursor: pointer;
+          backdrop-filter: blur(10px);
+          transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .muteBtn:hover {
+          transform: scale(1.1);
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        .videoFooter {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          padding: 18px 22px;
+          border-top: 1px solid rgba(15, 23, 42, 0.08);
+          background: rgba(14, 165, 233, 0.04);
+        }
+
+        .videoFooter div {
+          display: grid;
+          gap: 4px;
+        }
+
+        .videoFooter strong {
+          font-size: 13px;
+          letter-spacing: 0.02em;
+          color: #0f172a;
+        }
+
+        .videoFooter span {
+          color: rgba(15, 23, 42, 0.5);
+          font-size: 10px;
+          letter-spacing: 0.08em;
+        }
+
+        .videoDuration {
+          color: #0284c7 !important;
+          font-weight: 700;
+          white-space: nowrap;
+        }
+
+        /* ═══════ OTHER SECTIONS ═══════ */
         .introSection,
         .dataSection,
         .sonificationSection,
@@ -3030,6 +3159,16 @@ export default function Home() {
             height: 80vw;
             right: -28vw;
             opacity: 0.25;
+          }
+
+          .showcaseSection {
+            padding: 90px 6vw;
+          }
+
+          .videoFooter {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
           }
 
           .introGrid,
