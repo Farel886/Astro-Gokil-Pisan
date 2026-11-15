@@ -112,6 +112,14 @@ function cleanAiText(text) {
     .trim();
 }
 
+function sanitizeInput(text) {
+  if (!text) return "";
+  return text
+    .replace(/[^\p{L}\p{N}\s.,!?'"()\-:;@#%&+=/]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export default function Home() {
   const [readings, setReadings] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -203,13 +211,22 @@ export default function Home() {
   }, [aiMessages, aiLoading]);
 
   async function sendAiMessage() {
-    const text = aiInput.trim();
-    if (!text || aiLoading) return;
+    const raw = aiInput.trim();
+    if (!raw || aiLoading) return;
+
+    const text = sanitizeInput(raw);
+    if (!text) {
+      setAiInput("");
+      return;
+    }
 
     const newMessages = [...aiMessages, { role: "user", content: text }];
     setAiMessages(newMessages);
     setAiInput("");
     setAiLoading(true);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 25000);
 
     try {
       const res = await fetch("/api/chat", {
@@ -227,7 +244,10 @@ export default function Home() {
             frequency: currentFrequency.toFixed(0),
           },
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       const data = await res.json();
       if (!res.ok || data.error) throw new Error(data.error || "AI request failed");
@@ -237,14 +257,15 @@ export default function Home() {
         { role: "assistant", content: data.reply || "..." },
       ]);
     } catch (err) {
+      clearTimeout(timeoutId);
       console.error(err);
+      const msg =
+        err.name === "AbortError"
+          ? "The request took too long. Please try again in a moment."
+          : "My connection to the Earth's data was interrupted. Please try again in a moment.";
       setAiMessages((prev) => [
         ...prev,
-        {
-          role: "assistant",
-          content:
-            "My connection to the Earth's data was interrupted. Please try again in a moment.",
-        },
+        { role: "assistant", content: msg },
       ]);
     } finally {
       setAiLoading(false);
@@ -878,7 +899,7 @@ export default function Home() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendAiMessage(); }
                 }}
-                placeholder="Ask Farrel AI about the Earth..."
+                placeholder="Ask about Earth data, sonification, or the project..."
                 className="aiInput"
                 disabled={aiLoading}
               />
@@ -1788,7 +1809,7 @@ export default function Home() {
           background: rgba(15,23,42,0.6);
           color: #f1f5f9;
           border-radius: 8px;
-          font-size: 13px;
+          font-size: 16px;
           outline: none;
           transition: border-color 0.2s ease;
         }
