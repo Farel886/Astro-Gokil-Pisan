@@ -1,3 +1,4 @@
+// app/api/chat/route.js
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
@@ -6,28 +7,34 @@ export async function POST(req) {
   try {
     const { message, systemPrompt, history, context, isFirstMessage } = await req.json();
 
-    const firstRule = isFirstMessage
-      ? "\n\nIMPORTANT: This is the user's FIRST message. You MUST reply in English, regardless of the language used."
-      : "";
+    // ... (logika prompt kamu tetap sama) ...
 
-    const ctx = context
-      ? `\n\nCurrent page context:\n- Location: ${context.location}\n- Temperature: ${context.currentTemp}°C\n- Date: ${context.date}\n- Frequency: ${context.frequency} Hz`
-      : "";
-
-    const historyText = (history || [])
-      .map((m) => `${m.role === "user" ? "User" : "Farrel AI"}: ${m.content}`)
-      .join("\n");
-
-    const prompt = `${systemPrompt || ""}${firstRule}${ctx}\n\nConversation:\n${historyText}\n\nUser: ${message}\nFarrel AI:`;
+    // Tambahkan timeout 25 detik agar tidak menggantung
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 25000);
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash-lite",
+      model: "gemini-1.5-flash", // Gunakan model yang lebih stabil jika 2.5 bermasalah
       contents: prompt,
+      // config: { ... } // sesuaikan dengan kode kamu
+      // Note: jika SDK kamu mendukung signal, tambahkan { signal: controller.signal }
     });
 
+    clearTimeout(timeoutId);
+    
     return Response.json({ reply: response.text });
+
   } catch (error) {
-    console.error("Gemini error:", error);
-    return Response.json({ error: "AI request failed" }, { status: 500 });
+    // LOG ERROR ASLI DI SINI
+    console.error("=== GEMINI ERROR ===");
+    console.error("Message:", error.message);
+    console.error("Status:", error.status); 
+    console.error("====================");
+    
+    // Kirim pesan error yang lebih informatif ke frontend (opsional)
+    return Response.json(
+      { error: `AI service unavailable: ${error.message}` }, 
+      { status: 500 }
+    );
   }
 }
